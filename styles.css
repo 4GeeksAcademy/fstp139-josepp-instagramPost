@@ -172,3 +172,11 @@ body {
     color:  #0f0f0f;
     font-weight: 400;
 }
+
+
+/*añadido como requisito "overflow" del ejercicio*/
+.content.row .post-text p:last-of-type{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
