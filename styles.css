@@ -4,7 +4,7 @@
     margin: 0; padding: 0;
 }
 body {    
-    font-family: Roboto, Arial, sans-serif;   
+    font-family: "Roboto", Arial, sans-serif;   
     font-size: 18px;
     background-color: #ccc;
 }
@@ -168,4 +168,7 @@ body {
 }
 .post-text p{
     margin-bottom: 8px;
+    line-height: 1.2em;
+    color:  #0f0f0f;
+    font-weight: 400;
 }
