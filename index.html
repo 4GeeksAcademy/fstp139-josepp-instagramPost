@@ -1,0 +1,129 @@
+
+
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Práctica Post Instagram v2 AKA:Rigoberto</title>
+    <link rel='stylesheet' href='styles.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!-- ADICIONAL AL REQUISITO DEL EJERCICIO -->
+<!-- 4 funciones: 
+    - depurar divs, añadiendo una clase al post
+    - clonar el post inicial añadiendo un random a picsum para generar un post "visualmente diferente" 
+    - alternar flex direction
+
+    PD. NO sigue el diseño pixel perfect del ejercicio pero aplica casi todo lo visto hasta ahora, hay alguna licencia extra
+-->
+
+
+</head>
+<body>
+
+<div class="debug-menu">
+    <button type="button" onclick="toggleDebugClass()"><i class="fa-solid fa-bug"></i></button>
+    <button type="button" onclick="multiplicarPost()"><i class="fa-solid fa-plus"></i></button>
+    <button type="button" onclick="rowViewPost()"><i class="fa-solid fa-arrow-down"></i></button>
+    <button type="button" onclick="colViewPost()"><i class="fa-solid fa-arrow-right-long"></i></button>    
+</div>
+
+
+<!-- BASE DEL EJERCICIO -->
+    <div class="container">
+        <div class="content" id="content">
+
+
+            <div class="post" id="basePost">
+                <div class="post-header">
+                    <div class="post-title">
+                        <div class="post-title-icon">
+                            <i class="fa-brands fa-html5"></i>
+                        </div>
+                        <div class="post-title-title">
+                            <h3>HTML5</h3>
+                            <p class="author">Rigoberto</p>
+                        </div>
+                    </div>
+                    <div class="post-menu">
+                        <button><i class="fa-solid fa-ellipsis-vertical"></i></button>
+                    </div>
+                </div>
+
+
+                
+                <div class="post-img">
+                    <img src="https://picsum.photos/580/385">
+                </div>
+
+
+                
+                <div class="post-body">
+                    <div class="post-icons">
+                        <div class="pi-left">
+                            <button><i class="fa-regular fa-heart"></i></button>
+                            <button><i class="fa-regular fa-comment"></i></button>
+                            <button><i class="fa-regular fa-paper-plane"></i></button>
+                        </div>
+                        <div class="pi-right">
+                            <button><i class="fa-regular fa-bookmark"></i></button>
+                        </div>
+                    </div>
+                    <div class="post-text">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incidi</p>
+                        <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab ill Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?</p>
+                    </div>
+                </div>
+                
+            
+
+            </div>
+
+        
+        </div>
+    </div>
+    
+
+<!-- FUNCIONES ADICIONALES al ejercicio: manipulando el dom con flex, random -->
+<script>
+    
+
+    function toggleDebugClass(){
+        console.log('debug')
+        document.querySelectorAll('.post').forEach(el => {            
+               el.classList.toggle('debug');
+            
+        });               
+    }
+
+    function multiplicarPost(){        
+        let post = document.querySelector('#basePost')
+        let content = document.querySelector('#content')
+
+        let duplicado = post.cloneNode(true);        
+        let imagen = duplicado.querySelector('img')
+        let random = Math.floor(Math.random() * 100);                
+        imagen.src = imagen.src + '?t=' + random;
+    
+        duplicado.removeAttribute('id'); 
+        content.appendChild(duplicado);
+
+    }
+
+    function colViewPost(){
+        let el = document.querySelector('#content');    
+        el.classList.add('row');
+    }
+    function rowViewPost(){
+        let el = document.querySelector('#content');
+        el.classList.remove('row');
+    }
+
+
+
+
+</script>
+
+</body>
+</html>
